@@ -14,13 +14,7 @@ namespace Area
         {
             Height = height;
             Width = width;
-            Area = height * width;
-           
-        }
-
-        public override string ToString()
-        {
-            return "Area: " + Area; 
+            Area = height * width;           
         }
     }
 }
