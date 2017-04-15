@@ -14,8 +14,8 @@ namespace Area
             set
             {
                 _rectHeight = value;
+                _rectShape.Height = value;
                 NotifyPropertyChanged("RectangleHeight");
-                RectangleShape = new Rectangle(RectangleHeight, RectangleWidth);
             }
         }
 
@@ -25,14 +25,14 @@ namespace Area
             set
             {
                 _rectWidth = value;
+                _rectShape.Width = value;
                 NotifyPropertyChanged("RectangleWidth");
-                RectangleShape = new Rectangle(RectangleHeight, RectangleWidth);
             }
         }
 
-        private Shape _rectShape;
+        private Rectangle _rectShape = new Rectangle(0, 0);
 
-        public Shape RectangleShape
+        public Rectangle Rectangle
         {
             get { return _rectShape; }
             set

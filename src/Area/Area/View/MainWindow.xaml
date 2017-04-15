@@ -5,110 +5,112 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Area"
         mc:Ignorable="d"
-        Title="Area" Height="210" Width="250">
+        Title="Area" Height="329" Width="341">
 
     <Window.Resources>
         <Style TargetType="{x:Type TextBox}">
             <Setter Property="Width" Value="150"/>
         </Style>
     </Window.Resources>
-    <StackPanel>
-        <TabControl>
-            <TabItem Header="Rectangle">
-                <TabItem.DataContext>
-                    <local:RectangleViewModel/>
-                </TabItem.DataContext>
-                <StackPanel>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="3*"/>
-                        </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="0" Text="Height" TextAlignment="Center"/>
-                        <TextBox Grid.Column="1" Text="{Binding RectangleHeight}" Padding="2"/>
-                    </Grid>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="3*"/>
-                        </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="0" Text="Width" TextAlignment="Center"/>
-                        <TextBox Grid.Column="1" Text="{Binding RectangleWidth}" Padding="2"/>
-                    </Grid>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="3*"/>
-                        </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="0" Text="Area:" TextAlignment="Center"/>
-                        <TextBox IsReadOnly="True" Grid.Column="1" Background="#eee" Text="{Binding RectangleShape.Area}" Padding="2"/>
-                    </Grid>
+    <Viewbox>
+        <StackPanel>
+            <TabControl>
+                <TabItem Header="Rectangle">
+                    <TabItem.DataContext>
+                        <local:RectangleViewModel/>
+                    </TabItem.DataContext>
                     <StackPanel>
-                        <Image Source="/Images/rect_area.png" Height="75" Margin="0 5 0 0"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="3*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="Height" TextAlignment="Center"/>
+                            <TextBox Grid.Column="1" Text="{Binding RectangleHeight}" Padding="2"/>
+                        </Grid>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="3*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="Width" TextAlignment="Center"/>
+                            <TextBox Grid.Column="1" Text="{Binding RectangleWidth}" Padding="2"/>
+                        </Grid>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="3*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="Area:" TextAlignment="Center"/>
+                            <TextBox IsReadOnly="True" Grid.Column="1" Background="#eee" Text="{Binding Rectangle.Area}" Padding="2"/>
+                        </Grid>
+                        <StackPanel>
+                            <Image Source="/Images/rect_area.png" Height="75" Margin="0 5 0 0"/>
+                        </StackPanel>
                     </StackPanel>
-                </StackPanel>
 
-            </TabItem>
-            <TabItem Header="Circle">
-                <TabItem.DataContext>
-                    <local:CircleViewModel/>
-                </TabItem.DataContext>
-                <StackPanel>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="3*"/>
-                        </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="0" Text="Radius" TextAlignment="Center"/>
-                        <TextBox Grid.Column="1" Text="{Binding CircleRadius}" Padding="2"/>
-                    </Grid>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="3*"/>
-                        </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="0" Text="Area:" TextAlignment="Center"/>
-                        <TextBox Grid.Column="1" IsReadOnly="True" Background="#eee" Text="{Binding CircleShape.Area}" Padding="2"/>
-                    </Grid>
+                </TabItem>
+                <TabItem Header="Circle">
+                    <TabItem.DataContext>
+                        <local:CircleViewModel/>
+                    </TabItem.DataContext>
                     <StackPanel>
-                        <Image Source="/Images/circle_area.png" Height="75" Margin="0 30 0 0"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="3*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="Radius" TextAlignment="Center"/>
+                            <TextBox Grid.Column="1" Text="{Binding CircleRadius}" Padding="2"/>
+                        </Grid>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="3*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="Area:" TextAlignment="Center"/>
+                            <TextBox Grid.Column="1" IsReadOnly="True" Background="#eee" Text="{Binding CircleShape.Area}" Padding="2"/>
+                        </Grid>
+                        <StackPanel>
+                            <Image Source="/Images/circle_area.png" Height="75" Margin="0 30 0 0"/>
+                        </StackPanel>
                     </StackPanel>
-                </StackPanel>
-            </TabItem>
-            <TabItem Header="Triangle">
-                <TabItem.DataContext>
-                    <local:TriangleViewModel/>
-                </TabItem.DataContext>
-                <StackPanel>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="3*"/>
-                        </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="0" Text="Height" TextAlignment="Center"/>
-                        <TextBox Grid.Column="1" Text="{Binding TriangleHeight}" Padding="2"/>
-                    </Grid>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="3*"/>
-                        </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="0" Text="Base" TextAlignment="Center"/>
-                        <TextBox Grid.Column="1" Text="{Binding TriangleBase}" Padding="2"/>
-                    </Grid>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="3*"/>
-                        </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="0" Text="Area:" TextAlignment="Center"/>
-                        <TextBox IsReadOnly="True" Grid.Column="1" Background="#eee" Text="{Binding TriangleShape.Area}" Padding="2"/>
-                    </Grid>
-                    <StackPanel> 
-                        <Image Source="/Images/rect_area.png" Height="75" Margin="0 5 0 0"/>
+                </TabItem>
+                <TabItem Header="Triangle">
+                    <TabItem.DataContext>
+                        <local:TriangleViewModel/>
+                    </TabItem.DataContext>
+                    <StackPanel>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="3*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="Height" TextAlignment="Center"/>
+                            <TextBox Grid.Column="1" Text="{Binding TriModel.Height}" Padding="2"/>
+                        </Grid>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="3*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="Base" TextAlignment="Center"/>
+                            <TextBox Grid.Column="1" Text="{Binding TriModel.Base}" Padding="2"/>
+                        </Grid>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="3*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="Area:" TextAlignment="Center"/>
+                            <TextBox IsReadOnly="True" Grid.Column="1" Background="#eee" Text="{Binding TriModel.Area}" Padding="2"/>
+                        </Grid>
+                        <StackPanel>
+                            <Image Source="/Images/rect_area.png" Height="75" Margin="0 5 0 0"/>
+                        </StackPanel>
                     </StackPanel>
-                </StackPanel>
-            </TabItem>
-        </TabControl>
-    </StackPanel>
+                </TabItem>
+            </TabControl>
+        </StackPanel>
+    </Viewbox>
 </Window>

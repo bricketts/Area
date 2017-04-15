@@ -19,7 +19,7 @@ namespace Area
             {
                 _circleRadius = value;
                 NotifyPropertyChanged("CircleRadius");
-                CircleShape = new Circle(CircleRadius);
+                //CircleShape = new Circle(CircleRadius);
             }
         }
 

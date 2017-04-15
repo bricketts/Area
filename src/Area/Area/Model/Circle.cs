@@ -2,9 +2,10 @@
 
 namespace Area
 {
-    public class Circle : Shape
+    public class Circle
     {
         public double Radius { get; private set; }
+        public double Area { get; private set; }
 
         public Circle(double radius)
         {

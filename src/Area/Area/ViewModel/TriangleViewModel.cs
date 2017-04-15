@@ -1,54 +1,38 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace Area
 {
     class TriangleViewModel : INotifyPropertyChanged
     {
-        #region Triangle
-        private double _triHeight;
-        private double _triBase;
+        #region Triangle Model
 
-        public double TriangleHeight
+        Triangle _triModel;
+        public Triangle TriModel
         {
-            get { return _triHeight; }
+            get { return _triModel;  }
             set
             {
-                _triHeight = value;
-                NotifyPropertyChanged("TriangleHeight");
-                TriangleShape = new Triangle(TriangleHeight, TriangleBase);
+                _triModel = value;
+                OnPropertyChanged();
             }
         }
 
-        public double TriangleBase
+        public TriangleViewModel()
         {
-            get { return _triBase; }
-            set
-            {
-                _triBase = value;
-                NotifyPropertyChanged("TriangleBase");
-                TriangleShape = new Triangle(TriangleHeight, TriangleBase);
-            }
+            TriModel = new Triangle(10, 10);
         }
 
-        private Shape _triShape;
-
-        public Shape TriangleShape
-        {
-            get { return _triShape; }
-            set
-            {
-                _triShape = value;
-                NotifyPropertyChanged("TriangleShape");
-            }
-        }
         #endregion
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public void NotifyPropertyChanged(string propertyName)
+        private void OnPropertyChanged([CallerMemberName]string propertyName = "")
         {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            var handler = PropertyChanged;
+            if (handler != null)
+                handler(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
